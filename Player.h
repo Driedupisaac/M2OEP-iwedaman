@@ -8,6 +8,7 @@
 #include <string>
 #include "Asset.h"
 #include <vector>
+#include "Piece.h"
 using namespace std;
 
 //player class, representing a user player in monopoly
@@ -15,18 +16,21 @@ class Player {
 private:
   //variables for the name, total dollar amount of the player portfolio, and their portfolio
   string name;
-  string dollars;
+  int dollars;
   vector<Asset> assets;
+  bool jail = false;
+  int position;
 
  //constructors, one for a user's name, for when the game starts, and one for the user's
  //game progress, so their portfolio as well
  public:
    Player(string name){
      this->name = name;
+     this->dollars = 15000;
      cout << "Hello, " << name << "! Welcome to Monopoly" << endl;
      }
 
-  Player(string name, string dollars, string assetOne, string assetTwo, string assetThree){
+  Player(string name, int dollars, string assetOne, string assetTwo, string assetThree){
      this->name = name;
      this->dollars = dollars;
      assets.push_back(Asset(assetOne));
@@ -39,8 +43,20 @@ private:
      return name;
    }
 
-  string getDollars() {
+  int getDollars() {
      return dollars;
+   }
+
+  int getPosition() {
+     return position;
+   }
+
+  void setDollars(int dollars) {
+     this->dollars = dollars;
+   }
+
+    void setPosition(int position) {
+       this->position = position;
    }
 
   //this method returns the total value of all the properties in the user's portfolio
@@ -69,7 +85,7 @@ private:
 
   //to string method - prints out the name, portfolio amount, and assets of the user
   string toString() {
-     return name + "," + dollars + "," + getAssets();
+     return name + "," + to_string(dollars) + "," + getAssets();
    }
 
   //the way to compare players is through the value of their portfolios, so Im overloading the
@@ -78,6 +94,11 @@ private:
   {
      return this->assetsValue() == other.assetsValue();
   }
+
+  int roll() {
+    return ((rand() % 6) + 1) * 2;
+   }
+
 
   };
 

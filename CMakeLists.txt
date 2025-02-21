@@ -10,6 +10,15 @@ add_executable(M2OEP_iwedaman
         Game.h
         Player.cpp
         Asset.cpp
-        utility.cpp)
+        utility.cpp
+        Piece.h
+        Piece.cpp
+        Property.h
+        ElecWater.h
+        Railroad.h
+        Railroad.cpp
+        Board.h
+        Street.h
+        Square.h)
 
 
