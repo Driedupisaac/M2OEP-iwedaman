@@ -1,52 +1,86 @@
 //
 // Created by Isaac Wedaman on 2/19/25.
 //
-#include "Player.h"
-#include "Asset.h"
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #include <iostream>
-#include <stdexcept>
+#include <string>
+#include "Asset.h"
+#include <vector>
+#include "Player.h"
+using namespace std;
 
-Player::Player(const std::string& playerName)
-    : name(playerName), dollars(1500) {
-    std::cout << "Hello, " << name << "! Welcome to Monopoly.\n";
-}
+//player class, representing a user player in monopoly
+class Player {
+private:
+  //variables for the name, total dollar amount of the player portfolio, and their portfolio
+  string name;
+  string dollars;
+  vector<Asset> assets;
 
-Player::Player(const std::string& playerName, int money, const std::vector<Asset>& playerAssets)
-    : name(playerName), dollars(money), assets(playerAssets) {}
+ //constructors, one for a user's name, for when the game starts, and one for the user's
+ //game progress, so their portfolio as well
+ public:
+   Player(string name){
+     this->name = name;
+     cout << "Hello, " << name << "! Welcome to Monopoly" << endl;
+     }
 
-const std::string& Player::getName() const { return name; }
-int Player::getDollars() const { return dollars; }
+  Player(string name, string dollars, string assetOne, string assetTwo, string assetThree){
+     this->name = name;
+     this->dollars = dollars;
+     assets.push_back(Asset(assetOne));
+     assets.push_back(Asset(assetTwo));
+     assets.push_back(Asset(assetThree));
+   }
 
-int Player::assetsValue() const {
-    int totalValue = 0;
-    for (const auto& asset : assets) {
-        totalValue += asset.getRent();
-    }
-    return totalValue;
-}
+  //getters
+  string getName() {
+     return name;
+   }
 
-const Asset& Player::getAsset(size_t index) const {
-    if (index < assets.size()) {
-        return assets[index];
-    }
-    throw std::out_of_range("Asset index out of range.");
-}
+  string getDollars() {
+     return dollars;
+   }
 
-std::string Player::getAssets() const {
-    std::string assetList;
-    for (size_t i = 0; i < assets.size(); ++i) {
-        assetList += assets[i].getName();
-        if (i < assets.size() - 1) {
-            assetList += ", ";
-        }
-    }
-    return assetList.empty() ? "No assets" : assetList;
-}
+  //this method returns the total value of all the properties in the user's portfolio
+  int assetsValue () const
+  {
+     int count = 0;
+     for (Asset asset : assets) {
+       count += asset.getRent();
+     }
+     return count;
+   }
 
-std::string Player::toString() const {
-    return name + ", $" + std::to_string(dollars) + ", Assets: [" + getAssets() + "]";
-}
+//this returns the value a particular asset in the user's portfolio
+  string getAsset(int index) {
+     return assets[index].getName();
+   }
 
-bool Player::operator==(const Player& other) const {
-    return assetsValue() == other.assetsValue();
-}
+  //method for printing all the assets, used in this class' toString() method
+  string getAssets() {
+     string allAssets = "";
+     for (Asset asset : assets) {
+       allAssets += asset.getName() + ",";
+     }
+     return allAssets;
+   }
+
+  //to string method - prints out the name, portfolio amount, and assets of the user
+  string toString() {
+     return name + "," + dollars + "," + getAssets();
+   }
+
+  //the way to compare players is through the value of their portfolios, so Im overloading the
+  //== operator to compare two players' portfolio values
+  bool operator== (const Player& other) const
+  {
+     return this->assetsValue() == other.assetsValue();
+  }
+
+  };
+
+
+#endif //PLAYER_H

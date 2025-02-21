@@ -1,21 +1,27 @@
+#ifndef PLAYER_H
+#define PLAYER_H
+
+
 #include <vector>
 #include "Asset.h"
+#include <string>
 
 class Player {
 private:
     std::string name;
-    int dollars;
+    string dollars;
     std::vector<Asset> assets;
 
 public:
-    explicit Player(const std::string& playerName);
-    Player(const std::string& playerName, int money, const std::vector<Asset>& playerAssets);
+    Player(string playerName);
+    Player(string& playerName, string money, string assetOne, string assetTwo, string assetThree);
 
-    const std::string& getName() const;
-    int getDollars() const;
-    int assetsValue() const;
-    const Asset& getAsset(size_t index) const;
-    std::string getAssets() const;
-    std::string toString() const;
+    std::string getName();
+    std::int getDollars();
+    std::nt assetsValue() const;
+    std::string getAsset(int index);
+    std::string getAssets();
+    std::string toString();
     bool operator==(const Player& other) const;
 };
+#endif
