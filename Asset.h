@@ -23,11 +23,11 @@ public:
     };
 
     //getters and setters
-    string getName() {
+    string getName() const{
         return name;
     }
 
-    int getRent() {
+    int getRent() const {
         return rent;
     }
 

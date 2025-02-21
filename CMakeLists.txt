@@ -4,6 +4,10 @@ project(M2OEP_iwedaman)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(M2OEP_iwedaman
-    main.cpp)
+    main.cpp
+        Game.cpp
+        Player.h
+        Game.h
+        Player.cpp)
 
 
