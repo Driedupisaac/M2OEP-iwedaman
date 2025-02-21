@@ -9,6 +9,7 @@ add_executable(M2OEP_iwedaman
         Player.h
         Game.h
         Player.cpp
-        Asset.cpp)
+        Asset.cpp
+        utility.cpp)
 
 

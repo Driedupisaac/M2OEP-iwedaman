@@ -8,7 +8,7 @@
 #include <vector>
 #include "Player.h"
 #include <fstream>
-#include "utility.cpp"
+#include "utility.h"
 using namespace std;
 
 //game class, where the game is played, to keep the main function uncluttered
