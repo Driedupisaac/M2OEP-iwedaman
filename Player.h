@@ -80,7 +80,8 @@ private:
 
   //method for printing all the assets, used in this class' toString() method
   string getAssets() {
-     string allAssets = "";
+        cout << "You have " << assets.size() << " assets." << endl;
+       string allAssets = "";
      for (Asset asset : assets) {
        allAssets += asset.getName() + ",";
      }
@@ -88,8 +89,8 @@ private:
    }
 
   //to string method - prints out the name, portfolio amount, and assets of the user
-  string toString() {
-     return name + "," + to_string(dollars) + "," + getAssets();
+    string toString() {
+       return name + "," + to_string(dollars) + "," + to_string(position);
    }
 
   //the way to compare players is through the value of their portfolios, so Im overloading the

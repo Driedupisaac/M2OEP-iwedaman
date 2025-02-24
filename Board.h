@@ -9,6 +9,9 @@
 #include "Square.h"
 #include "Street.h"
 #include "utility.h"
+#include "Board.h"
+#include <fstream>
+#include "Tax.h"
 
 class Player;
 
@@ -20,6 +23,7 @@ public:
         board.push_back(new Street("GO!"));
         board.push_back(new Street("Mediterranean"));
         board.push_back(new Street("baltic"));
+        board.push_back(new Tax("Income", 2000));
         board.push_back(new Street("RR1"));
         board.push_back(new Street("Oriental"));
         board.push_back(new Street("Vermont"));
@@ -48,6 +52,7 @@ public:
         board.push_back(new Street("Pennsylvania"));
         board.push_back(new Street("Railroad 4"));
         board.push_back(new Street("Park Place"));
+        board.push_back(new Tax("luxury", 75));
         board.push_back(new Street("Boardwalk"));
 
     }
@@ -63,11 +68,11 @@ public:
             total %= board.size();
         }
         player.setPosition(total);
-        board[player.getPosition()]->land();
+        board[player.getPosition()]->land(player);
     }
 
     void turn(Player& player) {
-        bool turn = true;
+        bool done = false;
         int choice;
         cout << "\nIts your turn, " << player.getName() << "! Please enter a 1 to roll & move, a two to check your assets, or a three to save the game!\n";
         cout << "you have " << player.getDollars() << " dollars\n";
@@ -76,12 +81,32 @@ public:
             cout << "Please enter a choice, 1-3\n";
             choice = get_int_from_user();
         }
-        if (choice == 1) {
-            travel(player, player.roll());
+        while(!done) {
+            choice = get_int_from_user();
+            while (choice != 1 && choice != 2 && choice != 3) {
+                cout << "Please enter a choice, 1-3\n";
+                choice = get_int_from_user();
+            }
+            if (choice == 1) {
+                travel(player, player.roll());
+                done = true;
+            }
+            if (choice == 2) {
+                cout << player.getAssets() << endl;
+            }
+            if (choice == 3) {
+                cout << "what file do you want to save to?";
+                string fileName = ("../"  + get_sentence_from_user());
+                ofstream outputFile(fileName);
+
+                outputFile << player.toString();
+
+
+
+                outputFile.close();
+            }
         }
-        if (choice == 2) {
-            cout << player.getAssets() << endl;
-        }
+
     }
 
     ~Board() {

@@ -17,7 +17,7 @@ public:
     explicit Street(const std::string& name) : Square(name) {}
 
     //to simulate the player buying a property
-    void land() override {
+    void land(Player& p) override {
         cout << "\nYouve landed on " << name << endl;
     }
 

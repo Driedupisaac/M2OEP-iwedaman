@@ -18,6 +18,8 @@ add_executable(M2OEP_iwedaman
         Board.h
         Street.h
         Square.h
-        Board.cpp)
+        Board.cpp
+        Tax.h
+        Tax.cpp)
 
 

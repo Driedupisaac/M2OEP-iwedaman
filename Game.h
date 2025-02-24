@@ -16,6 +16,7 @@ using namespace std;
 class Game {
 private:
   //vector of Players, to keep track of them
+  //Initialization of the board class
   vector<Player> players;
   Board board;
 
@@ -44,20 +45,14 @@ public:
         count = userInt("How many are playing?");
       }
 
-      //commented for easier coding
-      // //creating the player instances for each player
-      // for(int i = 0; i < count; i++){
-      //   string input;
-      //   cout << "Hello, " << "player " << i+1 << "! What is your name: ";
-      //   input = get_sentence_from_user();
-      //   players.push_back(Player(input));
-      // }
+       //creating the player instances for each player
+       for(int i = 0; i < count; i++){
+         string input;
+         cout << "Hello, " << "player " << i+1 << "! What is your name: ";
+         input = get_sentence_from_user();
+         players.push_back(Player(input));
+       }
 
-      //TESTING_________________
-      players.push_back(Player("One"));
-      players.push_back(Player("Two"));
-      players.push_back(Player("Three"));
-      players.push_back(Player("Four"));
 
       //basic game loop
       while(true) {
@@ -66,6 +61,7 @@ public:
         }
       }
 
+      cout << players[0].toString();
 
     }
 
@@ -118,7 +114,9 @@ public:
        //writing to a file, in the instance we need to save the game
        ofstream outputFile("../test1.txt");
 
-       //outputFile << toString(players);
+       for(Player player : players) {
+         outputFile << player.toString() << endl;
+       }
 
        outputFile.close();
 
