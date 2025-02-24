@@ -71,56 +71,58 @@ public:
 
 
 
+
+
+
     }
 
     //the case that there was a saved game to load
     else {
-      //Commenting this out to work on other
-      // //prompting the user to enter their filename, and validating that it exists
-      // cout << "please enter a file to open from! ";
-      // string fileName = ("../"  + get_sentence_from_user());
-      // ifstream file(fileName);
-      //
-      // //input validation
-      // while(!file) {
-      //   cout << "There was an error opening the file! please enter the name again: ";
-      //   file.clear();
-      //
-      //   fileName = ("../" + get_sentence_from_user());
-      //   file.open(fileName);
-      // }
-      //
-      //
-      // //one player at a time, the vector takes all the input, and we can use logic later to sort
-      // //through it, for now all will be equal length
-      // vector<string> inputs;
-      //
-      // //populating the info vector/getting input from the file.
-      // //I intend for the information to be written and loaded like a csv
-      //  string user;
-      // getline(file, user);
-      // string item;
-      // stringstream ss(user);
-      //
-      //
-      // //chopping the line into segments based on where the comma was, and adding each bit to the vector
-      // while (getline(ss, item, ',')) {
-      //   inputs.push_back(item);
-      // }
-      //
-      // //getting the information from the file, creating a player instance, and closing the file
-      // //the protocol will be that the first two items are the player name and money count,
-      // //and the rest, all equal per player as an input protocol, will be properties
-      // players.push_back(Player(inputs[0], inputs[1], inputs[2], inputs[3], inputs[4]));
-      // //closing the file
-      // file.close();
-      //
-      // //writing to a file, in the instance we need to save the game
-      // ofstream outputFile("../test1.txt");
-      //
-      // outputFile << toString(players);
-      //
-      // outputFile.close();
+       //prompting the user to enter their filename, and validating that it exists
+       cout << "please enter a file to open from! ";
+       string fileName = ("../"  + get_sentence_from_user());
+       ifstream file(fileName);
+
+       //input validation
+       while(!file) {
+         cout << "There was an error opening the file! please enter the name again: ";
+         file.clear();
+
+         fileName = ("../" + get_sentence_from_user());
+         file.open(fileName);
+       }
+
+
+       //one player at a time, the vector takes all the input, and we can use logic later to sort
+       //through it, for now all will be equal length
+       vector<string> inputs;
+
+       //populating the info vector/getting input from the file.
+       //I intend for the information to be written and loaded like a csv
+        string user;
+       getline(file, user);
+       string item;
+       stringstream ss(user);
+
+
+       //chopping the line into segments based on where the comma was, and adding each bit to the vector
+       while (getline(ss, item, ',')) {
+         inputs.push_back(item);
+       }
+
+       //getting the information from the file, creating a player instance, and closing the file
+       //the protocol will be that the first two items are the player name and money count,
+       //and the rest, all equal per player as an input protocol, will be properties
+       players.push_back(Player(inputs[0], inputs[1], inputs[2], inputs[3], inputs[4]));
+       //closing the file
+       file.close();
+
+       //writing to a file, in the instance we need to save the game
+       ofstream outputFile("../test1.txt");
+
+       outputFile << toString(players);
+
+       outputFile.close();
 
     }
 

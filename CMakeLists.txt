@@ -19,6 +19,7 @@ add_executable(M2OEP_iwedaman
         Railroad.cpp
         Board.h
         Street.h
-        Square.h)
+        Square.h
+        Board.cpp)
 
 

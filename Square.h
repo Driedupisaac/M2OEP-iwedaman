@@ -14,7 +14,10 @@ public:
     explicit Square(const std::string& name) : name(name) {}
     virtual void land() {
         cout << "I've been landed on!";
-    };
+    }
+    virtual void on() {
+        cout<< "Im on!";
+    }
 };
 
 

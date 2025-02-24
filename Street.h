@@ -20,6 +20,10 @@ public:
     void land() override {
         cout << "Youve landed on " << name << endl;
     }
+
+    void on() override {
+        cout << "   you are on " + name + "\n";
+    }
 };
 
     // void buy(Player player) {

@@ -91,6 +91,12 @@ build CMakeFiles/M2OEP_iwedaman.dir/Railroad.cpp.o: CXX_COMPILER__M2OEP_iwedaman
   OBJECT_DIR = CMakeFiles/M2OEP_iwedaman.dir
   OBJECT_FILE_DIR = CMakeFiles/M2OEP_iwedaman.dir
 
+build CMakeFiles/M2OEP_iwedaman.dir/Board.cpp.o: CXX_COMPILER__M2OEP_iwedaman_unscanned_Debug /Users/isaacwedaman/CLionProjects/M2OEP-iwedaman/Board.cpp || cmake_object_order_depends_target_M2OEP_iwedaman
+  DEP_FILE = CMakeFiles/M2OEP_iwedaman.dir/Board.cpp.o.d
+  FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/M2OEP_iwedaman.dir
+  OBJECT_FILE_DIR = CMakeFiles/M2OEP_iwedaman.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target M2OEP_iwedaman
@@ -99,7 +105,7 @@ build CMakeFiles/M2OEP_iwedaman.dir/Railroad.cpp.o: CXX_COMPILER__M2OEP_iwedaman
 #############################################
 # Link the executable M2OEP_iwedaman
 
-build M2OEP_iwedaman: CXX_EXECUTABLE_LINKER__M2OEP_iwedaman_Debug CMakeFiles/M2OEP_iwedaman.dir/main.cpp.o CMakeFiles/M2OEP_iwedaman.dir/Game.cpp.o CMakeFiles/M2OEP_iwedaman.dir/Player.cpp.o CMakeFiles/M2OEP_iwedaman.dir/Asset.cpp.o CMakeFiles/M2OEP_iwedaman.dir/utility.cpp.o CMakeFiles/M2OEP_iwedaman.dir/Piece.cpp.o CMakeFiles/M2OEP_iwedaman.dir/Railroad.cpp.o
+build M2OEP_iwedaman: CXX_EXECUTABLE_LINKER__M2OEP_iwedaman_Debug CMakeFiles/M2OEP_iwedaman.dir/main.cpp.o CMakeFiles/M2OEP_iwedaman.dir/Game.cpp.o CMakeFiles/M2OEP_iwedaman.dir/Player.cpp.o CMakeFiles/M2OEP_iwedaman.dir/Asset.cpp.o CMakeFiles/M2OEP_iwedaman.dir/utility.cpp.o CMakeFiles/M2OEP_iwedaman.dir/Piece.cpp.o CMakeFiles/M2OEP_iwedaman.dir/Railroad.cpp.o CMakeFiles/M2OEP_iwedaman.dir/Board.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
   OBJECT_DIR = CMakeFiles/M2OEP_iwedaman.dir
   POST_BUILD = :

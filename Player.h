@@ -11,6 +11,7 @@
 #include "Piece.h"
 using namespace std;
 
+
 //player class, representing a user player in monopoly
 class Player {
 private:
@@ -19,14 +20,14 @@ private:
   int dollars;
   vector<Asset> assets;
   bool jail = false;
-  int position;
+  int position = 0;
 
  //constructors, one for a user's name, for when the game starts, and one for the user's
  //game progress, so their portfolio as well
  public:
    Player(string name){
      this->name = name;
-     this->dollars = 15000;
+     this->dollars = 1500;
      cout << "Hello, " << name << "! Welcome to Monopoly" << endl;
      }
 

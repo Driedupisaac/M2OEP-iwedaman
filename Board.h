@@ -5,11 +5,11 @@
 #define BOARD_H
 
 #include <vector>
-
+#include "Player.h"
 #include "Square.h"
 #include "Street.h"
 
-
+class Player;
 
 class Board {
 public:
@@ -52,7 +52,9 @@ public:
 
 
 
-    void travel(Player& player, int position) {
+    void travel(Player& player, int position){
+        cout << "Hello," << player.getName();
+        board[player.getPosition()]->on();
         int total = player.getPosition() + position;
         if (total >= board.size()) {
             total %= board.size();
@@ -60,6 +62,14 @@ public:
         player.setPosition(total);
         board[player.getPosition()]->land();
     }
+
+    ~Board() {
+        for (Square* s : board) {
+            delete s;
+        }
+    }
+
+
 
 
 };
