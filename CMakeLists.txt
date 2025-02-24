@@ -11,8 +11,6 @@ add_executable(M2OEP_iwedaman
         Player.cpp
         Asset.cpp
         utility.cpp
-        Piece.h
-        Piece.cpp
         Property.h
         ElecWater.h
         Railroad.h

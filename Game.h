@@ -60,18 +60,11 @@ public:
       players.push_back(Player("Four"));
 
       //basic game loop
-      bool gameOver = false;
-      for(int i = 0; i < 50; i++) {
-        board.travel(players[0], players[0].roll());
+      while(true) {
+        for(Player& player : players) {
+          board.turn(player);
+        }
       }
-
-
-
-
-
-
-
-
 
 
     }
@@ -97,30 +90,35 @@ public:
        //through it, for now all will be equal length
        vector<string> inputs;
 
-       //populating the info vector/getting input from the file.
-       //I intend for the information to be written and loaded like a csv
-        string user;
-       getline(file, user);
-       string item;
-       stringstream ss(user);
 
+      string user;
+      getline(file, user);
+      string item;
+      stringstream ss(user);
+      string line;
 
-       //chopping the line into segments based on where the comma was, and adding each bit to the vector
-       while (getline(ss, item, ',')) {
-         inputs.push_back(item);
-       }
+      while (getline(file, line)) {
+
+        stringstream ss(line);
+        string item;
+        vector<string> inputs;
+
+        while (getline(ss, item, ',')) {
+          inputs.push_back(item);
+        }
+      }
 
        //getting the information from the file, creating a player instance, and closing the file
        //the protocol will be that the first two items are the player name and money count,
        //and the rest, all equal per player as an input protocol, will be properties
-       players.push_back(Player(inputs[0], inputs[1], inputs[2], inputs[3], inputs[4]));
-       //closing the file
-       file.close();
-
+       // players.push_back(Player(inputs[0], inputs[1], inputs[2], inputs[3], inputs[4]));
+       // //closing the file
+       // file.close();
+       //
        //writing to a file, in the instance we need to save the game
        ofstream outputFile("../test1.txt");
 
-       outputFile << toString(players);
+       //outputFile << toString(players);
 
        outputFile.close();
 

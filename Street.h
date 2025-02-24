@@ -18,11 +18,11 @@ public:
 
     //to simulate the player buying a property
     void land() override {
-        cout << "Youve landed on " << name << endl;
+        cout << "\nYouve landed on " << name << endl;
     }
 
     void on() override {
-        cout << "   you are on " + name + "\n";
+        cout << " you are on " + name;
     }
 };
 

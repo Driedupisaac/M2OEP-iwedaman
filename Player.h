@@ -8,7 +8,6 @@
 #include <string>
 #include "Asset.h"
 #include <vector>
-#include "Piece.h"
 using namespace std;
 
 
@@ -56,6 +55,10 @@ private:
      this->dollars = dollars;
    }
 
+    void addAsset(Asset& asset) {
+       assets.push_back(asset);
+   }
+
     void setPosition(int position) {
        this->position = position;
    }
@@ -97,7 +100,7 @@ private:
   }
 
   int roll() {
-    return ((rand() % 6) + 1) * 2;
+       return ((rand() % 6) + 1) * 2;
    }
 
 
