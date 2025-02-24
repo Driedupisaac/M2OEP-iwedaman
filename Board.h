@@ -76,11 +76,11 @@ public:
         int choice;
         cout << "\nIts your turn, " << player.getName() << "! Please enter a 1 to roll & move, a two to check your assets, or a three to save the game!\n";
         cout << "you have " << player.getDollars() << " dollars\n";
-        choice = get_int_from_user();
-        while (choice != 1 && choice != 2 && choice != 3) {
-            cout << "Please enter a choice, 1-3\n";
-            choice = get_int_from_user();
-        }
+        // choice = get_int_from_user();
+        // while (choice != 1 && choice != 2 && choice != 3) {
+        //     cout << "Please enter a choice, 1-3\n";
+        //     choice = get_int_from_user();
+        // }
         while(!done) {
             choice = get_int_from_user();
             while (choice != 1 && choice != 2 && choice != 3) {
@@ -93,6 +93,8 @@ public:
             }
             if (choice == 2) {
                 cout << player.getAssets() << endl;
+                cout << "\nIts your turn, " << player.getName() << "! Please enter a 1 to roll & move, a two to check your assets, or a three to save the game!\n";
+                cout << "you have " << player.getDollars() << " dollars\n";
             }
             if (choice == 3) {
                 cout << "what file do you want to save to?";
@@ -104,6 +106,8 @@ public:
 
 
                 outputFile.close();
+                cout << "\nIts your turn, " << player.getName() << "! Please enter a 1 to roll & move, a two to check your assets, or a three to save the game!\n";
+                cout << "you have " << player.getDollars() << " dollars\n";
             }
         }
 
