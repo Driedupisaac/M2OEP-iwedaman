@@ -18,6 +18,8 @@ private:
   string name;
   int dollars;
   vector<Asset> assets;
+
+  //boolean for the player being in jail, and integer representation of their location
   bool jail = false;
   int position = 0;
 
@@ -47,21 +49,24 @@ private:
      return dollars;
    }
 
-  int getPosition() {
+   int getPosition() {
      return position;
+   }
+
+  //setters
+  void setPosition(int position) {
+       this->position = position;
    }
 
   void setDollars(int dollars) {
      this->dollars = dollars;
    }
 
-    void addAsset(Asset& asset) {
+  //constructor to add an asset (which is the virtual class for the property types) to the portfolio
+  void addAsset(Asset& asset) {
        assets.push_back(asset);
    }
 
-    void setPosition(int position) {
-       this->position = position;
-   }
 
   //this method returns the total value of all the properties in the user's portfolio
   int assetsValue () const

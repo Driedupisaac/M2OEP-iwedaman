@@ -7,10 +7,10 @@ using namespace std;
 
 #ifndef ASSET_H
 #define ASSET_H
-//class to represent the asset, or monopoly property, of a user
+//class to represent the asset, or monopoly property, of a user, to be inherited from
 class Asset {
 protected:
-    //variables for the name, rent
+    //variables for the name, rent, and cost for mortgage
     int cost;
     string name;
     int rent;

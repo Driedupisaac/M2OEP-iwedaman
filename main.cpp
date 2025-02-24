@@ -14,10 +14,6 @@ using namespace std;
 int main() {
     cout << "welcome to monopoly!" << endl ;
 
-    //current plan! have a menu, have a character class, and have input validation so that
-    //the program starting again can have all the characters remembered, and we can get
-    //straight to gameplay
-
     //initializing a game instance, and running the game function
     Game game;
     game.start();

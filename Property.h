@@ -7,7 +7,7 @@
 #include "Asset.h"
 
 
-
+//class to represent a normal monopoly property
 class Property : public Asset{
   private:
     //for number of Properties present
@@ -15,9 +15,11 @@ class Property : public Asset{
     //for houses, 5 for hotel
     int houses;
 public:
+    //class constructor
     Property(string name, int rent, int cost)
         : Asset(name, rent, cost){}
 
+    //method to calculate rent, overridden from Asset
     int getRent() const override {
         if (houses == 0) {
             return rent;

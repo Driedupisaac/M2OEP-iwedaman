@@ -8,19 +8,20 @@
 #include "Asset.h"
 #include "Square.h"
 
-
+//this class is meant to represent the normal street of a monopoly property
 class Street : public Square {
+    //variable for being owned
     bool own = false;
-    //Player owner;
-    //Asset asset;
 public:
+    //class constructor
     explicit Street(const std::string& name) : Square(name) {}
 
-    //to simulate the player buying a property
+    //to simulate the player landing on the property, inherited
     void land(Player& p) override {
         cout << "\nYouve landed on " << name << endl;
     }
 
+    //inherited method for starting on a property
     void on() override {
         cout << " you are on " + name;
     }
